@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name" : "Strings and Keys",
+    "version" : "1.0",
+    "description" : "Displays song details playing on youtube",
+    "permissions":[
+        "activeTab",
+        "scripting"
+    ],
+    "background":{
+        "service-worker" : "background.js"
+    },
+    "action" : {
+        "default_popup" : "popup.html"
+    },
+    "content_scripts" : [
+        {
+            "matches" : ["https://www.youtube.com/*"],
+            "js" : ["content.js"]
+        }
+    ]
+}

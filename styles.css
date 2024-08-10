@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Grey+Qo&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Grey+Qo&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+body{
+    margin: 10pxs;
+    padding: 0;
+    background-color: grey;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 200px;
+    background-color: blanchedalmond;
+    align-items: center;
+    border-radius: 30px;
+}
+
+.name{
+    font-family: 'Grey Qo',cursive;
+    font-weight: 800;
+    font-size: 32px;
+    font-style: normal;
+    margin: 0;
+}
+
+.song-information{
+    font-family: 'Arsenal SC', sans-serif;
+    font-size: 13px;
+    margin-top: 8px;
+    flex-grow: 1;
+    align-self: strech;
+}
+
+.song-name,.song-scale{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.detail{
+    font-weight: 550;
+    font-style: normal;
+    margin: 0;
+}
+
+.fill-song,.fill-scale{
+    font-weight: 500;
+    margin: 0;
+}
+
+.fill-singer{
+    font-weight: 500;
+    margin: 0;
+}
+
+.song-singer{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.button-holder{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.button {
+    display: flex;
+    padding: 1em 2em;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: black;
+    transition: all 1000ms;
+    font-size: 10px;
+    position: relative;
+    overflow: hidden;
+    outline: 2px solid black;
+  }
+  
+  button:hover {
+    color: #ffffff;
+    transform: scale(1.1);
+    outline: 2px solid rgb(84, 69, 50);
+    box-shadow: 4px 5px 17px -4px rgb(84, 69, 50);
+  }
+  
+  button::before {
+    content: "";
+    position: absolute;
+    left: -50px;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgb(84, 69, 50);
+    transform: skewX(45deg);
+    z-index: -1;
+    transition: width 1000ms;
+  }
+  
+  button:hover::before {
+    width: 250%;
+  }
+  
