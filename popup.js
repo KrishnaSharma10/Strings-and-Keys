@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
 document.getElementById("get-chord-sheet").addEventListener("click",function(){
     console.log("Hi");
     const song = document.querySelector('.fill-song').textContent;
-    const query = encodeURIComponent(`${song}`);
+    const artist = document.querySelector('.fill-singer').textContent;
+    const query = encodeURIComponent(`${song} ${artist}`);
     const searchUrl = `https://www.ultimate-guitar.com/search.php?search_type=title&value=${query}`;
     chrome.tabs.create({ url: searchUrl });
 })
