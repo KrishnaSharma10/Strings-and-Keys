@@ -1,21 +1,33 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Directly access the title within <yt-formatted-string>
-    const videoTitleElement = document.querySelector('h1.style-scope.ytd-watch-metadata yt-formatted-string');
-    
-    if (videoTitleElement) {
-        const videoTitle = videoTitleElement.innerText;
+function extractVideoTitle() {
+    const titleElement = document.querySelector('h1.style-scope.ytd-watch-metadata yt-formatted-string');
 
-        // Try logging or checking the full title
-        console.log('Full Title:', videoTitle);
+    if (titleElement) {
+        console.log('Title element found:', titleElement.innerText);
+        const titleText = titleElement.innerText || '';
+        const [artist, song] = titleText.split(' - ');
+        const songCleaned = song.split('(')[0].trim();
 
-        // Implement title parsing logic based on the known format
-        if (videoTitle.includes(' - ')) {
-            const [artist, song] = videoTitle.split(' - ');
-            chrome.runtime.sendMessage({ artist: artist.trim(), song: song.trim() });
-        } else {
-            console.error('Title format is unexpected:', videoTitle);
-        }
+        return {
+            artist: artist ? artist.trim() : 'Unknown Artist',
+            song: songCleaned ? songCleaned.trim() : 'Unknown Song'
+        };
     } else {
-        console.error('Video title element not found.');
+        console.error('Title element not found.');
+        return {
+            artist: 'Unknown Artist',
+            song: 'Unknown Song'
+        };
     }
-});
+}
+
+function updateVideoDetails() {
+    const videoDetails = extractVideoTitle();
+    console.log('Extracted Video Details:', videoDetails);
+
+    chrome.storage.local.set({ songDetails: videoDetails });
+}
+
+window.onload = function() {
+    updateVideoDetails(); 
+    setInterval(updateVideoDetails, 10000); 
+};

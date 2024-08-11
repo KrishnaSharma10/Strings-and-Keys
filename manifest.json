@@ -1,22 +1,23 @@
 {
     "manifest_version": 3,
-    "name" : "Strings and Keys",
-    "version" : "1.0",
-    "description" : "Displays song details playing on youtube",
-    "permissions":[
+    "name": "Strings and Keys",
+    "version": "1.0",
+    "description": "Displays song details playing on YouTube",
+    "permissions": [
         "activeTab",
-        "scripting"
+        "scripting",
+        "storage"
     ],
-    "background":{
-        "service-worker" : "background.js"
+    "background": {
+        "service_worker": "background.js"
     },
-    "action" : {
-        "default_popup" : "popup.html"
+    "action": {
+        "default_popup": "popup.html"
     },
-    "content_scripts" : [
+    "content_scripts": [
         {
-            "matches" : ["https://www.youtube.com/*"],
-            "js" : ["content.js"]
+            "matches": ["https://www.youtube.com/*"],
+            "js": ["content.js"]
         }
     ]
 }

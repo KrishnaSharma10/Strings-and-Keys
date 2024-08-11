@@ -10,7 +10,7 @@ body{
 .container{
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 500px;
     height: 200px;
     background-color: blanchedalmond;
     align-items: center;
